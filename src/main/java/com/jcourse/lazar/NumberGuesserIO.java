@@ -1,4 +1,4 @@
-package com.jcourse.helen;
+package com.jcourse.lazar;
 
 import java.io.InputStreamReader;
 
