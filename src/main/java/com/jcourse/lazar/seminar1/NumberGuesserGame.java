@@ -1,8 +1,8 @@
-package com.jcourse.lazar;
+package com.jcourse.lazar.seminar1;
 
 import java.util.Scanner;
 
-public class NumberGuesserGameClass {
+public class NumberGuesserGame {
     private static final String MESSAGE_START = "A number between 1 and %d has been made. Try to guess the number in %d attemptions.\nType your guess, press Enter, and I'll hint you is your suggestion less or more.\n";
     private static final String MESSAGE_INPUT_ERROR = "Incorrect input! Please try again.";
     private static final String MESSAGE_SUCCESS = "Congratulations!\nYou've been won.";
@@ -12,10 +12,10 @@ public class NumberGuesserGameClass {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        NumberGuesserCoreClass numberGuesser = new NumberGuesserCoreClass();
+        NumberGuesserCore numberGuesser = new NumberGuesserCore();
         String readString = "";
         int suggestion;
-        System.out.printf(MESSAGE_START, NumberGuesserCoreClass.MAX_BOUND, NumberGuesserCoreClass.MAX_ATTEMPTIONS);
+        System.out.printf(MESSAGE_START, NumberGuesserCore.MAX_BOUND, NumberGuesserCore.MAX_ATTEMPTIONS);
         // TODO (h.lazar) consider to use here a flag variable to decide weather to break or continue
         LOOP:
         while (true){
@@ -26,7 +26,7 @@ public class NumberGuesserGameClass {
                 System.out.println(MESSAGE_INPUT_ERROR);
                 continue LOOP;
             }
-            NumberGuesserCoreClass.AnswerMessage answer = numberGuesser.Guess(suggestion);
+            NumberGuesserCore.AnswerMessage answer = numberGuesser.guess(suggestion);
             switch (answer) {
                 case LESS:
                     System.out.println(MESSAGE_LESS);

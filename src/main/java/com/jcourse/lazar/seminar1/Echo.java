@@ -1,4 +1,4 @@
-package com.jcourse.lazar;
+package com.jcourse.lazar.seminar1;
 
 import static java.nio.charset.Charset.*;
 
@@ -8,9 +8,9 @@ import java.util.Scanner;
 //import java.io.InputStreamReader;
 
 /**
- *  ~/javadev/course/pract1 $ java -classpath src/main/java com.jcourse.lazar.EchoClass
+ *  ~/javadev/course/pract1 $ java -classpath src/main/java com.jcourse.lazar.Echo
  */
-public class EchoClass {
+public class Echo {
 
     // some common constants
     private static String EXIT_COMMAND = "exit";

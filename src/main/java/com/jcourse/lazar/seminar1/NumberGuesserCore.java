@@ -1,8 +1,8 @@
-package com.jcourse.lazar;
+package com.jcourse.lazar.seminar1;
 
 import java.util.Random;
 
-class NumberGuesserCoreClass {
+public class NumberGuesserCore {
     private int numberMade, attemptsCount;
     public static final int MAX_ATTEMPTIONS = 8;
     public static final int MAX_BOUND = 100;
@@ -10,12 +10,12 @@ class NumberGuesserCoreClass {
         MORE, LESS, SUCCESS, EXHAUSTED
     };
 
-    public NumberGuesserCoreClass() {
+    public NumberGuesserCore() {
         numberMade = new Random().nextInt(MAX_BOUND) + 1;
         attemptsCount = 0;
     }
 
-    public AnswerMessage Guess(int suggestion) {
+    public AnswerMessage guess(int suggestion) {
         attemptsCount++;
         if (attemptsCount >= MAX_ATTEMPTIONS) {
             return AnswerMessage.EXHAUSTED;
