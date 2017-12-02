@@ -4,18 +4,15 @@ import com.jcourse.lazar.calculator.ArgType;
 import com.jcourse.lazar.calculator.Command;
 import com.jcourse.lazar.calculator.In;
 
-import java.util.Map;
 import java.util.Stack;
 
-public class CommandPop extends Command {
-    @In(arg=ArgType.STACK)
+public class commandPrint extends Command {
+
+    @In(arg= ArgType.STACK)
     private Stack<Double> stack;
 
-    public CommandPop() {
-        super();
-    }
-
     public void execute(String operands[]) throws Exception {
-        stack.pop();
+        //TODO(h.lazar) pass output stream on instantiation
+        System.out.println(stack.peek());
     }
 }

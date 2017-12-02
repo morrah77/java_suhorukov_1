@@ -6,9 +6,13 @@ import java.util.Stack;
 public abstract class Command {
     public Stack<Double> stack;
     public Map<String, Double> params;
-    public Command(Stack<Double> stackArgument, Map<String, Double> paramsArgument) {
-        stack = stackArgument;
-        params = paramsArgument;
+
+    public Command() {
     }
-    abstract public void execute(String operands[]);
+
+    abstract public void execute(String operands[]) throws Exception;
+
+    public Stack<Double> getStack() {
+        return stack;
+    }
 }
