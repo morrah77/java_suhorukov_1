@@ -1,4 +1,9 @@
+#IDE settings
 .idea
+.classpath
+.project
+#other
 seminar_1.pdf
 
 
+/bin/
