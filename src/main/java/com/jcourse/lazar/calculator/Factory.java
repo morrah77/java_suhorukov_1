@@ -11,7 +11,7 @@ public class Factory {
     private Properties properties;
     public Factory() {
         try {
-            Properties properties = new Properties();
+            properties = new Properties();
             InputStream inputStream = Factory.class.getResourceAsStream("commands.properties");
             properties.load(inputStream);
             System.out.println("Factory is instantiated with properties:\n" + properties);
@@ -26,7 +26,7 @@ public class Factory {
             Command command = (Command) commandClass.newInstance();
             Field[] fields = commandClass.getDeclaredFields();
             for (Field field : fields) {
-                System.out.println(field);
+//                System.out.println(field);
                 if (field.isAnnotationPresent(In.class)) {
                     In annotation = field.getAnnotation(In.class);
                     switch (annotation.arg()) {

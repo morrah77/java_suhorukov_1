@@ -1,25 +1,20 @@
 package com.jcourse.lazar.calculator.commands;
 
-import com.jcourse.lazar.calculator.ArgType;
-import com.jcourse.lazar.calculator.Command;
-import com.jcourse.lazar.calculator.CommandBadArgumentsException;
-import com.jcourse.lazar.calculator.In;
+import com.jcourse.lazar.calculator.*;
 
 import java.util.Map;
 import java.util.Stack;
 
-public class CommandAdd extends Command {
+public class CommandAdd extends CommandWithStack implements Command {
     @In(arg= ArgType.STACK)
     private Stack<Double> stack;
 
     @In(arg=ArgType.DEFINITIONS)
     private Map<String, Double> params;
 
-    private final int OPERANDS_COUNT = 2;
-    private final String BAD_OPERANDS_COUNT = "Want 2 operands!";
+    private final int OPERANDS_COUNT = 0;
+    private final String BAD_OPERANDS_COUNT = "Want 0 operands!";
     private final String BAD_VALUE = "Value must be a number!";
-
-    private Double values[];
 
     public CommandAdd() {
         super();
@@ -27,21 +22,15 @@ public class CommandAdd extends Command {
 
     public void execute(String operands[]) throws CommandBadArgumentsException {
         validateAndParseOperands(operands);
-        Double result = values[1] + values[2];
+        Double arg1 = stack.pop();
+        Double arg2 = stack.pop();
+        Double result = arg1 + arg2;
         stack.push(result);
     }
 
     private void validateAndParseOperands(String operands[]) throws CommandBadArgumentsException {
         if (operands.length != OPERANDS_COUNT) {
             throw new CommandBadArgumentsException(BAD_OPERANDS_COUNT);
-        }
-        try {
-            for(String operand : operands) {
-                values[values.length] = Double.valueOf(operand);
-            }
-
-        } catch (NumberFormatException ex) {
-            throw new CommandBadArgumentsException(BAD_VALUE);
         }
     }
 }

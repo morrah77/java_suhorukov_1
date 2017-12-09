@@ -2,11 +2,12 @@ package com.jcourse.lazar.calculator.commands;
 
 import com.jcourse.lazar.calculator.ArgType;
 import com.jcourse.lazar.calculator.Command;
+import com.jcourse.lazar.calculator.CommandWithStack;
 import com.jcourse.lazar.calculator.In;
 
 import java.util.Stack;
 
-public class commandPrint extends Command {
+public class CommandPrint extends CommandWithStack implements Command {
 
     @In(arg= ArgType.STACK)
     private Stack<Double> stack;

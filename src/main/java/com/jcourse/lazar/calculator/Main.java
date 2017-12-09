@@ -5,6 +5,7 @@ import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
@@ -21,7 +22,7 @@ public class Main {
         Path path = FileSystems.getDefault().getPath(fileName);
         String line;
         Stack<Double> stack = new Stack<>();
-        Map<String, Double> params;
+        Map<String, Double> params = new HashMap<String, Double>();
         Invoker invoker = new Invoker(stack, params);
         try {
             bufferedReader = Files.newBufferedReader(path, Charset.forName(defaultCharset().toString()));

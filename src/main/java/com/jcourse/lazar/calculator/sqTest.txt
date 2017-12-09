@@ -1,0 +1,37 @@
+DEFINE a 3
+DEFINE b 4
+DEFINE c 5
+DEFINE two 2
+DEFINE four 4
+#Let's calculate first root
+#Let's calculate a discriminant!
+PUSH b
+PUSH b
+MULTIPLY
+PUSH a
+PUSH c
+MULTIPLY
+PUSH four
+MULTIPLY
+SUBTRACT
+PRINT
+PUSH a
+PUSH two
+MULTIPLY
+PRINT
+DIVIDE
+PRINT
+#Let's calculate first root
+SQRT
+PUSH 0
+PUSH b
+SUBTRACT
+PUSH a
+PUSH two
+MULTIPLY
+PRINT
+DIVIDE
+PRINT
+#Let's calculate first root
+ADD
+PRINT
