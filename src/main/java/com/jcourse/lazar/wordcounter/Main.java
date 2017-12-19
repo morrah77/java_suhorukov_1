@@ -10,6 +10,7 @@ import java.util.Map;
 
 import static java.nio.charset.Charset.defaultCharset;
 
+// TODO(h.lazar) make it based on Stream API (BufferedReader.lines().map(implementLogicHere()))
 public class Main {
     private static Map<String, WordCounter> freqDictionary;
     public static void main(String[] args) {
@@ -54,19 +55,20 @@ public class Main {
         if (currentWordCounter == null) {
             putNewWordIndoDictionary(currentWord);
         }
-        Double currentFreq = currentWordCounter.freqAbsolute;
+        int currentFreq = currentWordCounter.freqAbsolute;
         currentFreq += 1;
         currentWordCounter.freqAbsolute = currentFreq;
         stringBuilder.setLength(0);
     }
 
     private static void sortTheDictionary() {
-        ArrayList<Map.Entry<String, WordCounter>> arrayList = new ArrayList(freqDictionary.size());
-        arrayList.addAll(freqDictionary.entrySet());
+        ArrayList<Map.Entry<String, WordCounter>> arrayList = new ArrayList<>(freqDictionary.entrySet());
+//        arrayList.addAll(freqDictionary.entrySet());
         arrayList.sort(new Comparator() {
             @Override
-            public int compare(Object o1, Object o2) {
-                return (WordCounter)o2.freqAbsolute - (WordCounter)o1.freqAbsolute;
+            public int compare(Map.Entry<String, WordCounter> o1, Map.Entry<String, WordCounter> o2) {
+                // use Integer.compare()
+                return Integer.compare(o2.getValue().freqAbsolute, o1.getValue().freqAbsolute);
             }
         });
     }
@@ -77,10 +79,10 @@ public class Main {
     }
 
     private static class WordCounter {
-        Double freqAbsolute;
+        int freqAbsolute;
         Double freqPercentage;
         WordCounter() {
-            freqAbsolute = 0.;
+            freqAbsolute = 0;
             freqPercentage = 0.;
         }
         WordCounter(Double freqAbsolute) {
