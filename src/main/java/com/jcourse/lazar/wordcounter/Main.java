@@ -61,17 +61,17 @@ public class Main {
         stringBuilder.setLength(0);
     }
 
-    private static void sortTheDictionary() {
-        ArrayList<Map.Entry<String, WordCounter>> arrayList = new ArrayList<>(freqDictionary.entrySet());
-//        arrayList.addAll(freqDictionary.entrySet());
-        arrayList.sort(new Comparator() {
-            @Override
-            public int compare(Map.Entry<String, WordCounter> o1, Map.Entry<String, WordCounter> o2) {
-                // use Integer.compare()
-                return Integer.compare(o2.getValue().freqAbsolute, o1.getValue().freqAbsolute);
-            }
-        });
-    }
+//    private static void sortTheDictionary() {
+//        ArrayList<Map.Entry<String, WordCounter>> arrayList = new ArrayList<>(freqDictionary.entrySet());
+////        arrayList.addAll(freqDictionary.entrySet());
+//        arrayList.sort(new Comparator() {
+////            @Override
+//            public int compare(Map.Entry<String, WordCounter> o1, Map.Entry<String, WordCounter> o2) {
+//                // use Integer.compare()
+//                return Integer.compare(o2.getValue().freqAbsolute, o1.getValue().freqAbsolute);
+//            }
+//        });
+//    }
 
     private static void putNewWordIndoDictionary(String currentWord) {
         WordCounter currentWordCounter = new WordCounter(1.);
