@@ -13,12 +13,15 @@ public class Main {
                 "generateOutOfMemoryError",
                 "generateMyException"
         };
-        for (int i = 0; i < methods.length; i++) {
+        for (String method: methods) {
             try {
-                generator.getClass().getMethod(methods[i]).invoke(generator);
+                generator.getClass().getMethod(method).invoke(generator);
             } catch (Exception e) {
-                System.out.println(methods[i]);
-                System.out.println(e.getMessage());
+                System.out.println(method);
+                System.out.println(e.getCause());
+            } catch (Error e) {
+                System.out.println(method);
+                System.out.println(e.getCause());
             }
         }
     }
