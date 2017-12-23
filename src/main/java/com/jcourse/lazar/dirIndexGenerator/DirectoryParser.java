@@ -11,7 +11,8 @@ import java.util.Iterator;
 public class DirectoryParser {
     public static ArrayList<FileInfo> Parse(String dirPath) {
         ArrayList<FileInfo> resultList = new ArrayList<>();
-        Path path = FileSystems.getDefault().getPath(dirPath);
+        // TODO(h.lazar) pass the root directory via command-line args || through config
+        Path path = FileSystems.getDefault().getPath(".", dirPath);
         try {
             DirectoryStream directoryStream = Files.newDirectoryStream(path);
             for (Object dirItem: directoryStream) {
@@ -47,7 +48,7 @@ public class DirectoryParser {
         public FileInfo(Path item) {
             try {
                 name = item.getFileName().toString();
-                fullPath = item.normalize().toString();
+                fullPath = item.resolve(".").toString();
                 isDirectory = Files.isDirectory(item, LinkOption.NOFOLLOW_LINKS);
                 modified = Files.getLastModifiedTime(item, LinkOption.NOFOLLOW_LINKS);
                 if (!isDirectory) {

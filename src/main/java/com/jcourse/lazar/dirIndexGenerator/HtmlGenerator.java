@@ -28,7 +28,9 @@ public class HtmlGenerator {
             htmlStringBuilder.append("<td>");
             htmlStringBuilder.append(getHyperlink(info.fullPath, info.name));
             htmlStringBuilder.append("&nbsp;");
-            htmlStringBuilder.append(info.modified.toString());
+            if (info.modified != null) {
+                htmlStringBuilder.append(info.modified.toString());
+            }
             htmlStringBuilder.append("</td>");
             htmlStringBuilder.append("<td>");
             htmlStringBuilder.append(String.valueOf(info.size));
