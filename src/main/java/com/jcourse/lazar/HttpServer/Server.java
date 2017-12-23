@@ -18,8 +18,8 @@ public class Server {
         }
 
     }
-    public Server(int port) {
-        port = port;
-        serverSocket = new ServerSocket(port);
-    }
+//    public Server(int port) {
+//        port = port;
+//        serverSocket = new ServerSocket(port);
+//    }
 }
